@@ -1,47 +1,205 @@
 <!DOCTYPE html>
 <html lang="vi">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mừng tân gia</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Wedding Hau Ho - Hoang Phuong</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfutmLkiAbvP26o_dh2iyPizsnawALf2SziHMtKRnmAEFhJmA/viewform" target="_blank" class="btn">Xác nhận tham dự</a></p>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet"/>
 </head>
+
 <body>
-    <audio autoplay loop>
-        <source src="music/wedding.mp3" type="audio/mpeg">
-    </audio>
-    <div class="invitation">
-        <h1>Trân trọng kính mời</h1>
-        <p>Quý quan khách đến chung vui tiệc mừng tân gia</p>
-        <h2>Đại gia đình Nghiên & Niêm</h2>
-        <p>Vào lúc 11:00, Ngày 12, Tháng 08, Năm 2025</p>
-        <p>(Nhằm Ngày 19, Tháng 6, Năm Ất Tỵ)</p>
-        <p>Tại tư gia: Thôn Nam Cao, Xã Nam Đà, Tỉnh Lâm Đồng</p>
-        <p>(Đắk Sôr, Krông Nô, Đắk Nông cũ)</p>
-        <img src="img/banner.jpg" alt="Ảnh cưới" class="banner">
-        <p>Rất hân hạnh được đón tiếp!</p>
+  <!-- Nhạc nền -->
+  <audio autoplay loop>
+    <source src="music/wedding.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="overlay"></div>
+
+  <!-- Menu -->
+  <nav class="menu-bar">
+    <ul>
+      <li><a href="#confirm" data-target="confirm">Xác nhận tham dự</a></li>
+      <li><a href="#gift" data-target="gift">Mừng cưới</a></li>
+      <li><a href="#wish" data-target="wish">Gửi lời chúc</a></li>
+      <li><a href="#map" data-target="map">Bản đồ</a></li>
+    </ul>
+  </nav>
+
+  <div class="invitation">
+    <h1>Save the date!</h1>
+    <h2>20-Nov-2025</h2>
+    <p class="introduction">WE ARE GETTING MARRIED</p>
+    <h3>Hậu Hồ  ♥  Hoàng Phương</h3>
+    <p>Vào lúc 11:30, Ngày 12, Tháng 08, Năm 2025</p>
+    <p>(Nhằm Ngày 12, Tháng 08, Năm Ất Tỵ)</p>
+    <p>Tại tư gia nhà trai: Xã Nam Thành, Tỉnh Lâm Đồng</p>
+    <p>(Xã Sùng Nhơn, Huyện Đức Linh, Tỉnh Bình Thuận cũ)</p>
+    <img src="img/banner.jpg" alt="Ảnh cưới" class="banner" />
+    <p class="ending">Niềm vinh hạnh của gia đình là sự hiện diện của Quý vị</p>
+    <p class="thanks">Thân mời, Hậu - Phương</p>
+
+    <!-- Section: Xác nhận tham dự -->
+    <section id="confirm">
+      <h2>Xác nhận tham dự</h2>
+      <p>Mời bạn xác nhận sự hiện diện bằng cách điền form bên dưới:</p>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfutmLkiAbvP26o_dh2iyPizsnawALf2SziHMtKRnmAEFhJmA/viewform?embedded=true"
+        width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0">
+        Đang tải…
+      </iframe>
+    </section>
+
+    <!-- Section: Mừng cưới -->
+    <section id="gift">
+      <h2>Mừng cưới</h2>
+      <p>Thông tin tài khoản ngân hàng để bạn có thể gửi mừng cưới từ xa:</p>
+      <p><strong>Ngân hàng:</strong> Vietinbank<br />
+        <strong>Tên TK:</strong> HO XUAN HAU<br />
+        <strong>Số tài khoản:</strong> 108868910203
+      </p>
+      <p><strong>QR Code chuyển khoản:</strong></p>
+      <img src="img/qr.jpg" alt="QR chuyển khoản" class="banner" />
+    </section>
+
+    <!-- Section: Gửi lời chúc -->
+    <section id="wish">
+      <h2>Gửi lời chúc</h2>
+      <p>Mời bạn để lại lời chúc dễ thương dành cho cô dâu chú rể 💌</p>
+
+      <form name="wish-form">
+        <input type="text" name="name" placeholder="Tên bạn là gì?" required /><br />
+        <textarea name="message" placeholder="Lời chúc của bạn" rows="4" required></textarea><br />
+        <button type="submit">Gửi lời chúc</button>
+      </form>
+
+      <p id="status"></p>
+
+      <div id="wish-list">
+        <h3>Lời chúc đã gửi 🎉</h3>
+        <ul id="messages"></ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- Section: Bản đồ -->
+  <section id="map">
+    <h2>📍Bản đồ chỉ dẫn</h2>
+    <p>Thôn 4, Xã Sùng Nhơn, Huyện Đức Linh, Tỉnh Bình Thuận</p>
+    <div class="map-frame">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3012.423156545784!2d107.86385999999999!3d12.526085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDMxJzMzLjkiTiAxMDfCsDUxJzQ5LjkiRQ!5e1!3m2!1svi!2s!4v1753154741618!5m2!1svi!2s" 
+        width="45%" height="300" style="border:0; border-radius:8px;" 
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
+    <a href="https://maps.app.goo.gl/s9gbSpVes7MhyJWq6" target="_blank" class="map-btn">
+      Xem chỉ đường trên Google Maps
+    </a>
+  </section>
+
+  <!-- Script: Âm thanh -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const audio = document.querySelector('audio');
+      function enableAudio() {
+        audio.play().catch(e => console.log("Trình duyệt chặn autoplay:", e));
+        document.removeEventListener('click', enableAudio);
+        document.removeEventListener('touchstart', enableAudio);
+      }
+      document.addEventListener('click', enableAudio);
+      document.addEventListener('touchstart', enableAudio);
+    });
+  </script>
+
+  <!-- Script: Menu điều hướng -->
+  <script>
+    const menuItems = document.querySelectorAll('.menu-bar a');
+    const sections = document.querySelectorAll('section');
+
+function showSection(id) {
+  sections.forEach(section => {
+    if (section.id === id) {
+      section.classList.add('active');
+    } else {
+      section.classList.remove('active');
+    }
+  });
+}
+
+menuItems.forEach(item => {
+  item.addEventListener('click', function (e) {
+    e.preventDefault();
+    menuItems.forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+    const target = this.getAttribute('data-target');
+    showSection(target);
+  });
+});
+  </script>
+
+  <!-- Script: Gửi lời chúc bằng Google Apps Script -->
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec'; // Thay bằng ID thực
+    const form = document.forms['wish-form'];
+    const messagesList = document.getElementById('messages');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => {
+          document.getElementById('status').innerText = "🎉 Gửi thành công!";
+          form.reset();
+          loadWishes();
+        })
+        .catch(error => {
+          document.getElementById('status').innerText = "🎉 Gửi thành công!";
+        });
+    });
+
+    function loadWishes() {
+      fetch(scriptURL + '?action=read')
+        .then(res => res.json())
+        .then(data => {
+          messagesList.innerHTML = '';
+          data.reverse().forEach(entry => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${entry.name}</strong>: ${entry.message}`;
+            messagesList.appendChild(li);
+          });
+        });
+    }
+
+    loadWishes(); // Tải lời chúc khi vào trang
+  </script>
 </body>
 </html>
-<section class="map">
-  <h2>📍Bản đồ chỉ dẫn</h2>
-  <p>Nam Cao, Đắk Sôr, Krông Nô, Đắk Nông</p>
-  
-  <div class="map-frame">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3012.423156545784!2d107.86385999999999!3d12.526085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDMxJzMzLjkiTiAxMDfCsDUxJzQ5LjkiRQ!5e1!3m2!1svi!2s!4v1753154741618!5m2!1svi!2s" 
-      width="100%" 
-      height="300" 
-      style="border:0; border-radius:8px;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-    <a href="https://maps.app.goo.gl/s9gbSpVes7MhyJWq6" target="_blank" class="map-btn">
-    Xem chỉ đường trên Google Maps
-  </a>
-</section>
+<script>
+  const menuItems = document.querySelectorAll('.menu-bar a');
+  const sections = document.querySelectorAll('section');
 
+  // KHÔNG hiện section nào khi vừa load
+  sections.forEach(section => section.classList.remove('active'));
+
+  function showSection(id) {
+    sections.forEach(section => {
+      if (section.id === id) {
+        section.classList.add('active');
+      } else {
+        section.classList.remove('active');
+      }
+    });
+  }
+
+  menuItems.forEach(item => {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = this.getAttribute('data-target');
+      showSection(target);
+    });
+  });
+</script>

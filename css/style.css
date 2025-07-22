@@ -1,0 +1,206 @@
+
+body {
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.invitation {
+    padding: 15px;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5em;
+    color: #a2d2ff;
+}
+
+h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.0em;
+    color: #a2d2ff;
+}
+h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.0em;
+    color: #a2d2ff;
+}
+
+p {
+    font-family: 'Dancing Script', Open Sans;
+    font-size: 1.0em;
+    color: #333;
+}
+
+.banner {
+    margin-top: 15px;
+    max-width: 10%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.map {
+  padding: 2em;
+  background-color: #f0f8ff;
+  border-radius: 12px;
+  margin: 2em auto;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.map h2 {
+  color: #004e92;
+  font-family: 'Playfair Display', serif;
+}
+
+.map-frame {
+  width: 45%;
+  max-width: 500px;  /* có thể tùy chỉnh */
+  margin: 0 auto;    /* căn giữa */
+  border-radius: 8px;
+  overflow: hidden;  /* tránh viền bị tràn */
+}
+
+.map-frame iframe {
+  width: 100%;       /* chiếm hết div chứa */
+  height: 300px;
+  border: 0;
+  border-radius: 8px;
+}
+.map-btn {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.map-btn:hover {
+  background-color: #0056b3;
+}
+.introduction {
+  font-size: 18px;
+  font-family: 'Playfair Display', serif;
+}
+.ending {
+  font-size: 18px;
+  font-family: 'Playfair Display', serif;
+}
+.thanks {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8em;
+  color: #004080;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.200); /* Lớp phủ đen mờ */
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white; /* Đổi màu chữ cho nổi bật */
+}
+
+/* Menu bar */
+.menu-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1em 0;
+  z-index: 10;
+}
+
+.menu-bar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-bar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu-bar a:hover {
+  color: #ffc107; /* màu vàng nhẹ khi hover */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1em;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background: #007bff;
+  color: white;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #0056b3;
+}
+section {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+section.active {
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-bar a.active {
+  color: #0055cc;
+  font-weight: bold;
+  border-bottom: 2px solid #0055cc;
+}
+html {
+  scroll-behavior: smooth;
+}
