@@ -1,6 +1,6 @@
 
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Poppins', Montserrat;
     background-color: #e6f0fa;
     text-align: center;
     margin: 0;
@@ -12,16 +12,19 @@ body {
 }
 
 h1 {
-    font-size: 2em;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
     color: #004080;
 }
 
 h2 {
-    font-size: 1.8em;
-    color: #0059b3;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5em;
+    color: #004080;
 }
 
 p {
+    font-family: 'Dancing Script', Open Sans;
     font-size: 1.2em;
     color: #333;
 }
