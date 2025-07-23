@@ -1,233 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Wedding Hau Ho - Hoang Phuong</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfutmLkiAbvP26o_dh2iyPizsnawALf2SziHMtKRnmAEFhJmA/viewform" target="_blank" class="btn"></a></p>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet"/>
+</head>
 
-body {
-    background-image: url('../img/bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    text-align: center;
-    position: relative;
-    margin: 0;
-    padding: 0;
-}
+<body>
+  <!-- Nhạc nền --
+  <audio autoplay loop>
+    <source src="music/wedding.mp3" type="audio/mpeg" />
+  </audio>
 
-.invitation {
-    padding: 15px;
-}
+  <div class="overlay"></div>
 
-h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3.5em;
-    color: #56a5ef;
-    text-shadow: 2px 2px 4px #aaa;
-    animation: shake 0.9s infinite;
-}
+  <!-- Menu -->
+  <nav class="menu-bar">
+    <ul>
+      <li><a href="#confirm" data-target="confirm">Xác nhận tham dự</a></li>
+      <li><a href="#gift" data-target="gift">Mừng cưới</a></li>
+      <li><a href="#wish" data-target="wish">Gửi lời chúc</a></li>
+      <li><a href="#map" data-target="map">Bản đồ</a></li>
+    </ul>
+  </nav>
 
-h2 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.8em;
-    color: #56a5ef;
-    text-shadow: 2px 2px 4px #aaa;
-}
-h3 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.8em;
-    color: #56a5ef;
-    text-shadow: 2px 2px 4px #aaa;
-    animation: glow 1.0s ease-in-out infinite alternate;
-}
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-2px); }
-    50% { transform: translateX(2px); }
-    75% { transform: translateX(-2px); }
-    100% { transform: translateX(0); }
-}
-@keyframes glow {
-    from {
-        text-shadow: 0 0 5px #56a5ef, 0 0 10px #56a5ef, 0 0 15px #56a5ef;
+  <div class="invitation">
+    <h1>Save the date!</h1>
+    <h2>20-Nov-2025</h2>
+    <p class="introduction">WE ARE GETTING MARRIED</p>
+    <h3>Hậu Hồ  ♥  Hoàng Phương</h3>
+    <p>Hôn lễ được tổ chức tại tư gia nam</p>
+    <p>Vào lúc 11:30, Ngày 12, Tháng 08, Năm 2025</p>
+    <p>(Nhằm Ngày 12, Tháng 08, Năm Ất Tỵ)</p>
+    <p>Địa chỉ: Xã Nam Thành, Tỉnh Lâm Đồng</p>
+    <p>(Xã Sùng Nhơn, Huyện Đức Linh, Tỉnh Bình Thuận cũ)</p>
+    <img src="img/banner.jpg" alt="Ảnh cưới" class="banner" />
+    <p class="ending">Sự hiện diện của Quý vị là niềm vinh hạnh cho gia đình</p>
+    <p class="thanks">Thân mời, Hậu - Phương</p>
+
+    <!-- Section: Xác nhận tham dự -->
+    <section id="confirm">
+      <h2>Xác nhận tham dự</h2>
+      <p>Mời bạn xác nhận sự hiện diện bằng cách điền form bên dưới:</p>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfutmLkiAbvP26o_dh2iyPizsnawALf2SziHMtKRnmAEFhJmA/viewform?embedded=true"
+        width="70%" height="700" frameborder="0" marginheight="0" marginwidth="0">
+        Đang tải…
+      </iframe>
+    </section>
+
+    <!-- Section: Mừng cưới -->
+    <section id="gift">
+      <h2>Mừng cưới</h2>
+      <p>Thông tin ngân hàng để bạn có thể gửi mừng cưới từ xa:</p>
+      <p><strong>Ngân hàng:</strong> Vietinbank<br />
+        <strong>Tên TK:</strong> HO XUAN HAU<br />
+        <strong>Số tài khoản:</strong> 108868910203
+      </p>
+      <img src="img/qr.jpg" alt="QR chuyển khoản" class="qrcode" />
+    </section>
+
+    <!-- Section: Gửi lời chúc -->
+    <section id="wish">
+      <h2>Gửi lời chúc</h2>
+      <p>Mời bạn để lại lời chúc dễ thương dành cho cô dâu chú rể 💌</p>
+
+      <form name="wish-form">
+        <input type="text" name="name" placeholder="Tên bạn là gì?" required /><br />
+        <textarea name="message" placeholder="Lời chúc của bạn" rows="4" required></textarea><br />
+        <button type="submit">Gửi lời chúc</button>
+      </form>
+
+      <p id="status"></p>
+
+      <div id="wish-list">
+        <h3>Lời chúc đã gửi 🎉</h3>
+        <ul id="messages"></ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- Section: Bản đồ -->
+  <section id="map">
+    <h2>📍Bản đồ chỉ dẫn</h2>
+    <p>Thôn 4, Xã Sùng Nhơn, Huyện Đức Linh, Tỉnh Bình Thuận</p>
+    <div class="map-frame">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.5002904822877!2d107.57805957369962!3d11.257667488921829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31746b0019b933db%3A0xdc49f6463ab96f4e!2zTmjDoCBNYXkgw5p0IELDrG5o!5e1!3m2!1svi!2s!4v1753181526160!5m2!1svi!2s" 
+        width="45%" height="300" style="border:0; border-radius:8px;" 
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <a href="https://maps.app.goo.gl/s9gbSpVes7MhyJWq6" target="_blank" class="map-btn">
+      Xem chỉ đường trên Google Maps
+    </a>
+  </section>
+
+  <!-- Script: Âm thanh -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const audio = document.querySelector('audio');
+      function enableAudio() {
+        audio.play().catch(e => console.log("Trình duyệt chặn autoplay:", e));
+        document.removeEventListener('click', enableAudio);
+        document.removeEventListener('touchstart', enableAudio);
+      }
+      document.addEventListener('click', enableAudio);
+      document.addEventListener('touchstart', enableAudio);
+    });
+  </script>
+
+  <!-- Script: Menu điều hướng -->
+  <script>
+    const menuItems = document.querySelectorAll('.menu-bar a');
+    const sections = document.querySelectorAll('section');
+
+function showSection(id) {
+  sections.forEach(section => {
+    if (section.id === id) {
+      section.classList.add('active');
+    } else {
+      section.classList.remove('active');
     }
-    to {
-        text-shadow: 0 0 15px #56a5ef, 0 0 20px #56a5ef, 0 0 25px #56a5ef;
+  });
+}
+
+menuItems.forEach(item => {
+  item.addEventListener('click', function (e) {
+    e.preventDefault();
+    menuItems.forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+    const target = this.getAttribute('data-target');
+    showSection(target);
+  });
+});
+  </script>
+
+  <!-- Script: Gửi lời chúc bằng Google Apps Script -->
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec'; // Thay bằng ID thực
+    const form = document.forms['wish-form'];
+    const messagesList = document.getElementById('messages');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => {
+          document.getElementById('status').innerText = "🎉 Gửi thành công!";
+          form.reset();
+          loadWishes();
+        })
+        .catch(error => {
+          document.getElementById('status').innerText = "🎉 Gửi thành công!";
+        });
+    });
+
+    function loadWishes() {
+      fetch(scriptURL + '?action=read')
+        .then(res => res.json())
+        .then(data => {
+          messagesList.innerHTML = '';
+          data.reverse().forEach(entry => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${entry.name}</strong>: ${entry.message}`;
+            messagesList.appendChild(li);
+          });
+        });
     }
-}
-p {
-    font-family: 'Dancing Script', Open Sans;
-    font-size: 1.0em;
-    color: #000000ae;
-}
 
-.banner {
-    margin-top: 15px;
-    max-width: 20%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-.qrcode {
-    margin-top: 15px;
-    max-width: 30%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+    loadWishes(); // Tải lời chúc khi vào trang
+  </script>
+</body>
+</html>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuItems = document.querySelectorAll('.menu-bar a');
+    const sections = document.querySelectorAll('section');
 
-.map {
-  padding: 2em;
-  background-color: #f0f8ff;
-  border-radius: 12px;
-  margin: 2em auto;
-  max-width: 800px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
+    // Ẩn tất cả section khi vừa load
+    sections.forEach(section => section.classList.remove('active'));
 
-.map h2 {
-  color: #56a5ef;
-  font-family: 'Playfair Display', serif;
-}
+    function showSection(id) {
+      sections.forEach(section => {
+        if (section.id === id) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
+    }
 
-.map-frame {
-  width: 45%;
-  max-width: 500px;  /* có thể tùy chỉnh */
-  margin: 0 auto;    /* căn giữa */
-  border-radius: 8px;
-  overflow: hidden;  /* tránh viền bị tràn */
-}
-
-.map-frame iframe {
-  width: 100%;       /* chiếm hết div chứa */
-  height: 300px;
-  border: 0;
-  border-radius: 8px;
-}
-.map-btn {
-  display: inline-block;
-  margin-top: 1em;
-  padding: 0.5em 1em;
-  background-color: #007bff;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
-.map-btn:hover {
-  background-color: #007bff;
-}
-.introduction {
-  font-size: 18px;
-  font-family: 'Playfair Display', serif;
-}
-.ending {
-  font-size: 18px;
-  font-family: 'Playfair Display', serif;
-}
-.thanks {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8em;
-  color: #007bff;
-  animation: shake 0.9s infinite;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.200); /* Lớp phủ đen mờ */
-  z-index: 0;
-}
-
-.content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  color: white; /* Đổi màu chữ cho nổi bật */
-}
-
-/* Menu bar */
-.menu-bar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 1em 0;
-  z-index: 10;
-}
-
-.menu-bar ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 2em;
-  margin: 0;
-  padding: 0;
-}
-
-.menu-bar a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.menu-bar a:hover {
-  color: #3eb1db; /* màu vàng nhẹ khi hover */
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-input, textarea {
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  font-size: 1em;
-}
-
-button {
-  padding: 10px;
-  border: none;
-  background: #007bff;
-  color: white;
-  font-size: 1em;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background: #0056b3;
-}
-section {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transition: opacity 0.4s ease;
-  z-index: -1;
-}
-
-section.active {
-  visibility: visible;
-  opacity: 1;
-  position: relative;
-  z-index: 1;
-}
-
-.menu-bar a.active {
-  color: #0055cc;
-  font-weight: bold;
-  border-bottom: 2px solid #0055cc;
-}
-html {
-  scroll-behavior: smooth;
-}
+    menuItems.forEach(item => {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        menuItems.forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+        const target = this.getAttribute('data-target');
+        showSection(target);
+      });
+    });
+  });
+</script>
