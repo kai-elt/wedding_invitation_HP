@@ -33,7 +33,7 @@ h3 {
     font-family: 'Great Vibes', cursive;
     font-size: 1.8em;
     color: #56a5ef;
-    text-shadow: 2px 2px 4px #aaa;
+    text-shadow: 2px 2px 4px #cef3f5;
     animation: glow 1.0s ease-in-out infinite alternate;
 }
 @keyframes shake {
@@ -45,7 +45,7 @@ h3 {
 }
 @keyframes glow {
     from {
-        text-shadow: 0 0 5px #56a5ef, 0 0 10px #56a5ef, 0 0 15px #56a5ef;
+        text-shadow: 0 0 5px #bcd9f4, 0 0 10px #bcd9f4, 0 0 15px #bcd9f4;
     }
     to {
         text-shadow: 0 0 15px #56a5ef, 0 0 20px #56a5ef, 0 0 25px #56a5ef;
@@ -168,8 +168,8 @@ p {
 .menu-bar a {
   color: white;
   text-decoration: none;
+  font-size: 0.6em;
   font-weight: bold;
-  font-size: 1.0em;
   transition: color 0.3s;
 }
 
@@ -231,27 +231,4 @@ section.active {
 }
 html {
   scroll-behavior: smooth;
-}
-@keyframes fall {
-  0% {
-    transform: translateY(-20px) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-.flower {
-  position: fixed;
-  top: -30px;
-  width: 30px;
-  height: 30px;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/7096/7096435.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  pointer-events: none;
-  animation: fall linear infinite;
-  z-index: 9999;
 }
