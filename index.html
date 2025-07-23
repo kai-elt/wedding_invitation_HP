@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -12,18 +13,19 @@
 
 <body>
     <!-- Script: Âm thanh -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const audio = document.querySelector('audio');
-      function enableAudio() {
-        audio.play().catch(e => console.log("Trình duyệt chặn autoplay:", e));
-        document.removeEventListener('click', enableAudio);
-        document.removeEventListener('touchstart', enableAudio);
-      }
-      document.addEventListener('click', enableAudio);
-      document.addEventListener('touchstart', enableAudio);
-    });
-  </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const audio = document.querySelector('audio');
+    function enableAudio() {
+      audio.play().catch(e => console.log("Trình duyệt chặn autoplay:", e));
+      document.removeEventListener('click', enableAudio);
+      document.removeEventListener('touchstart', enableAudio);
+    }
+
+    document.addEventListener('click', enableAudio);
+    document.addEventListener('touchstart', enableAudio);
+  });
+</script>
   <!-- Nhạc nền -->
   <audio autoplay loop>
     <source src="music/wedding.mp3" type="audio/mpeg" />
@@ -175,14 +177,13 @@ menuItems.forEach(item => {
 
     loadWishes(); // Tải lời chúc khi vào trang
   </script>
-</body>
   <script>
   document.addEventListener('DOMContentLoaded', function () {
     const menuItems = document.querySelectorAll('.menu-bar a');
     const sections = document.querySelectorAll('section');
 
     // Ẩn tất cả section khi vừa load
-    sections.forEach(section => section.classList.remove('active'));
+    //sections.forEach(section => section.classList.remove('active'));
 
     function showSection(id) {
       sections.forEach(section => {
@@ -216,8 +217,7 @@ menuItems.forEach(item => {
     document.body.appendChild(flower);
     setTimeout(() => flower.remove(), 10000);
   }
-
-  setInterval(createFlower, 250);
+  setInterval(createFlower, 300);
 </script>
+</body>
 </html>
-
