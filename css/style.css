@@ -18,18 +18,18 @@ body {
 h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 3.5em;
-    color: #a2d2ff;
+    color: #56a5ef;
 }
 
 h2 {
     font-family: 'Great Vibes', cursive;
     font-size: 2.0em;
-    color: #a2d2ff;
+    color: #56a5ef;
 }
 h3 {
     font-family: 'Great Vibes', cursive;
     font-size: 2.0em;
-    color: #a2d2ff;
+    color: #56a5ef;
 }
 
 p {
@@ -40,7 +40,14 @@ p {
 
 .banner {
     margin-top: 15px;
-    max-width: 10%;
+    max-width: 20%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.qrcode {
+    margin-top: 15px;
+    max-width: 30%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -57,7 +64,7 @@ p {
 }
 
 .map h2 {
-  color: #004e92;
+  color: #56a5ef;
   font-family: 'Playfair Display', serif;
 }
 
@@ -146,7 +153,7 @@ p {
 }
 
 .menu-bar a:hover {
-  color: #ffc107; /* màu vàng nhẹ khi hover */
+  color: #3eb1db; /* màu vàng nhẹ khi hover */
 }
 
 form {
