@@ -19,23 +19,42 @@ h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 3.5em;
     color: #56a5ef;
+    text-shadow: 2px 2px 4px #aaa;
+    animation: shake 0.9s infinite;
 }
 
 h2 {
     font-family: 'Great Vibes', cursive;
-    font-size: 2.0em;
+    font-size: 1.8em;
     color: #56a5ef;
+    text-shadow: 2px 2px 4px #aaa;
 }
 h3 {
     font-family: 'Great Vibes', cursive;
     font-size: 2.0em;
     color: #56a5ef;
+    text-shadow: 2px 2px 4px #aaa;
+    animation: glow 1.0s ease-in-out infinite alternate;
 }
-
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #56a5ef, 0 0 10px #56a5ef, 0 0 15px #56a5ef;
+    }
+    to {
+        text-shadow: 0 0 15px #56a5ef, 0 0 20px #56a5ef, 0 0 25px #56a5ef;
+    }
+}
 p {
     font-family: 'Dancing Script', Open Sans;
     font-size: 1.0em;
-    color: #333;
+    color: #000000ae;
 }
 
 .banner {
@@ -93,7 +112,7 @@ p {
   font-weight: bold;
 }
 .map-btn:hover {
-  background-color: #0056b3;
+  background-color: #007bff;
 }
 .introduction {
   font-size: 18px;
@@ -106,7 +125,8 @@ p {
 .thanks {
   font-family: 'Playfair Display', serif;
   font-size: 1.8em;
-  color: #004080;
+  color: #007bff;
+  animation: shake 0.9s infinite;
 }
 
 .overlay {
