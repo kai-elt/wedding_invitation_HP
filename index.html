@@ -179,9 +179,9 @@ menuItems.forEach(item => {
   document.addEventListener('DOMContentLoaded', function () {
     const menuItems = document.querySelectorAll('.menu-bar a');
     const sections = document.querySelectorAll('section');
+    const audio = document.querySelector('audio');
 
     // Ẩn tất cả section khi vừa load
-    //sections.forEach(section => section.classList.remove('active'));
 
     function showSection(id) {
       sections.forEach(section => {
@@ -215,7 +215,7 @@ menuItems.forEach(item => {
     document.body.appendChild(flower);
     setTimeout(() => flower.remove(), 10000);
   }
-  setInterval(createFlower, 300);
+  setInterval(createFlower, 400);
 </script>
 </body>
 </html>
