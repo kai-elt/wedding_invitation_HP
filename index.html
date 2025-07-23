@@ -9,7 +9,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet"/>
 </head>
-
+  <!-- Script: Âm thanh -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const audio = document.querySelector('audio');
+      function enableAudio() {
+        audio.play().catch(e => console.log("Trình duyệt chặn autoplay:", e));
+        document.removeEventListener('click', enableAudio);
+        document.removeEventListener('touchstart', enableAudio);
+      }
+      document.addEventListener('click', enableAudio);
+      document.addEventListener('touchstart', enableAudio);
+    });
+  </script>
 <body>
   <!-- Nhạc nền -->
   <audio autoplay loop>
@@ -99,20 +111,6 @@
       Xem chỉ đường trên Google Maps
     </a>
   </section>
-
-  <!-- Script: Âm thanh -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const audio = document.querySelector('audio');
-      function enableAudio() {
-        audio.play().catch(e => console.log("Trình duyệt chặn autoplay:", e));
-        document.removeEventListener('click', enableAudio);
-        document.removeEventListener('touchstart', enableAudio);
-      }
-      document.addEventListener('click', enableAudio);
-      document.addEventListener('touchstart', enableAudio);
-    });
-  </script>
 
   <!-- Script: Menu điều hướng -->
   <script>
