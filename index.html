@@ -12,6 +12,12 @@
 </head>
 
 <body>
+
+<!-- Video nền -->
+<video autoplay muted loop playsinline class="video-bg">
+    <source src="video/wedding-bg.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ video nền.
+  </video>
     <!-- Script: Âm thanh -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -35,6 +41,7 @@
   <nav class="menu-bar">
     <ul>
       <li><a href="#confirm" data-target="confirm">Xác nhận tham dự</a></li>
+      <li><a href="#datetime" data-target="datetime">Thời gian</a></li>
       <li><a href="#wish" data-target="wish">Gửi lời chúc</a></li>
       <li><a href="#map" data-target="map">Bản đồ</a></li>
       <li><a href="#gift" data-target="gift">Mừng cưới</a></li>
@@ -46,11 +53,6 @@
     <h2>30-Nov-2025</h2>
     <p class="introduction">WE ARE GETTING MARRIED</p>
     <h3>Hậu Hồ  ♥  Hoàng Phương</h3>
-    <p>Hôn lễ được tổ chức tại tư gia nam</p>
-    <p>Vào lúc 11:30, Ngày 30, Tháng 11, Năm 2025</p>
-    <p>(Nhằm Ngày 11, Tháng 10, Năm Ất Tỵ)</p>
-    <p>Địa chỉ: Xã Nam Thành, Tỉnh Lâm Đồng</p>
-    <p>(Xã Sùng Nhơn, Huyện Đức Linh, Tỉnh Bình Thuận cũ)</p>
     <img src="img/banner.jpg" alt="Ảnh cưới" class="banner" />
     <p class="ending">Sự hiện diện của Quý vị là niềm vinh hạnh cho gia đình</p>
     <p class="thanks">Thân mời, Hậu - Phương</p>
@@ -65,7 +67,11 @@
         Đang tải…
       </iframe>
     </section>
-
+    <!-- Section: Datetime -->
+    <section id="datetime">
+        <h2>Thời gian</h2>
+        <img src="img/datetime.jpg" class="datetime" />
+      </section>
     <!-- Section: Mừng cưới -->
     <section id="gift">
       <h2>Mừng cưới</h2>
@@ -155,20 +161,6 @@ menuItems.forEach(item => {
         });
     });
 
-    function loadWishes() {
-      fetch(scriptURL + '?action=read')
-        .then(res => res.json())
-        .then(data => {
-          messagesList.innerHTML = '';
-          data.reverse().forEach(entry => {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${entry.name}</strong>: ${entry.message}`;
-            messagesList.appendChild(li);
-          });
-        });
-    }
-
-    loadWishes(); // Tải lời chúc khi vào trang
   </script>
   <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -178,15 +170,6 @@ menuItems.forEach(item => {
 
     // Ẩn tất cả section khi vừa load
 
-    function showSection(id) {
-      sections.forEach(section => {
-        if (section.id === id) {
-          section.classList.add('active');
-        } else {
-          section.classList.remove('active');
-        }
-      });
-    }
 
     menuItems.forEach(item => {
       item.addEventListener('click', function (e) {
