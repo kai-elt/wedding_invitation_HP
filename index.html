@@ -10,8 +10,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet"/>
 </head>
+<script>
+  window.addEventListener('load', () => {
+    // Chờ 2 giây rồi mở rèm
+    setTimeout(() => {
+      document.querySelector('.curtain').classList.add('open');
+    }, 500);
+  });
+</script>
 
 <body>
+  <!-- Hiệu ứng rèm-->
+<div class="curtain">
+  <div class="curtain-left"></div>
+  <div class="curtain-right"></div>
+</div>
 
 <!-- Video nền --
 <video autoplay muted loop playsinline class="video-bg">
