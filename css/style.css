@@ -33,7 +33,6 @@ h2 {
     color: #56a5ef;
     text-shadow: 2px 2px 4px #aaa;
     text-align: center;
-    animation: shake 0.9s infinite;
 }
 
 @keyframes shake {
@@ -58,7 +57,7 @@ p {
 }
 
 .banner {
-    margin-top: 15px;
+    margin-top: 25px;
     max-width: 80%;
     height: auto;
     border-radius: 20px;
@@ -72,7 +71,7 @@ p {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 .datetime {
-    margin-top: 15px;
+    margin-top: 25px;
     max-width: 80%;
     height: auto;
     border-radius: 20px;
