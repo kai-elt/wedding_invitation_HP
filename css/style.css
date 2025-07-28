@@ -27,13 +27,15 @@ h2 {
     color: #56a5ef;
     text-shadow: 2px 2px 4px #aaa;
 }
-h3 {
+.bride-groom {
     font-family: 'Great Vibes', cursive;
-    font-size: 1.8em;
+    font-size: 3.5em;
     color: #56a5ef;
-    text-shadow: 2px 2px 4px #cef3f5;
-    animation: glow 1.0s ease-in-out infinite alternate;
+    text-shadow: 2px 2px 4px #aaa;
+    text-align: center;
+    animation: shake 0.9s infinite;
 }
+
 @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-2px); }
