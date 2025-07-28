@@ -33,6 +33,7 @@ h2 {
     color: #56a5ef;
     text-shadow: 2px 2px 4px #aaa;
     text-align: center;
+    animation: shake 0.9s infinite;
 }
 
 @keyframes shake {
@@ -57,8 +58,15 @@ p {
 }
 
 .banner {
-    margin-top: 35px;
-    max-width: 80%;
+    margin-top: 25px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.datetime {
+    margin-top: 25px;
+    max-width: 98%;
     height: auto;
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -70,13 +78,7 @@ p {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-.datetime {
-    margin-top: 35px;
-    max-width: 80%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+
 
 .map {
   padding: 2em;
@@ -94,7 +96,7 @@ p {
 }
 
 .map-frame {
-  width: 75%;
+  width: 100%;
   max-width: 800px;  /* có thể tùy chỉnh */
   margin: 0 auto;    /* căn giữa */
   border-radius: 8px;
@@ -103,7 +105,7 @@ p {
 
 .map-frame iframe {
   width: 100%;       /* chiếm hết div chứa */
-  height: 300px;
+  height: 500px;
   border: 0;
   border-radius: 8px;
 }
