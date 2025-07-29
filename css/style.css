@@ -33,7 +33,6 @@ h2 {
     color: #56a5ef;
     text-shadow: 2px 2px 4px #aaa;
     text-align: center;
-    animation: shake 0.9s infinite;
 }
 
 @keyframes shake {
@@ -159,7 +158,7 @@ p {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(250, 250, 250, 0.621);
   padding: 1em 0;
   z-index: 10;
 }
@@ -174,7 +173,7 @@ p {
 }
 
 .menu-bar a {
-  color: white;
+  color: rgb(0, 0, 0);
   text-decoration: none;
   font-size: 0.6em;
   font-weight: bold;
