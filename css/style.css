@@ -298,17 +298,6 @@ html {
   pointer-events: none;
 }
 
-.curtain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 9999;
-  display: flex;
-  pointer-events: none;
-}
-
 /* Cả hai bên dùng gradient để tạo hiệu ứng loang màu */
 .curtain-left,
 .curtain-right {
@@ -317,21 +306,20 @@ html {
   transition: transform 500ms ease;
   z-index: 9999;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;      /* co ảnh đủ che khung */
+  background-position: center; /* căn giữa ảnh */
 }
 
-/* Gradient loang từ trái qua giữa */
 .curtain-left {
-  /*background: linear-gradient(to right, #f282cb97, #d0e3e897);*/
   background-image: url('../img/curtain left.jpg');
-  transform: translateX(0%);
+  background-size: 100% 100%;   /* ép ảnh tràn đúng khung */
+  background-position: left center;
 }
 
-/* Gradient loang từ phải qua giữa */
 .curtain-right {
-  /*background: linear-gradient(to right, #f282cb97, #d0e3e897);*/
   background-image: url('../img/curtain right.jpg');
-  transform: translateX(0%);
+  background-size: 100% 100%;   /* ép ảnh tràn đúng khung */
+  background-position: right center;
 }
 
 /* Khi mở */
