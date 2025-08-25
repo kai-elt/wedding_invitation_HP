@@ -322,13 +322,15 @@ html {
 
 /* Gradient loang từ trái qua giữa */
 .curtain-left {
-  background: linear-gradient(to right, #f282cb97, #d0e3e897);
+  /*background: linear-gradient(to right, #f282cb97, #d0e3e897);*/
+  background-image: url('../img/curtain left.jpg');
   transform: translateX(0%);
 }
 
 /* Gradient loang từ phải qua giữa */
 .curtain-right {
-  background: linear-gradient(to left, #f282cb97, #d0e3e897);
+  /*background: linear-gradient(to right, #f282cb97, #d0e3e897);*/
+  background-image: url('../img/curtain right.jpg');
   transform: translateX(0%);
 }
 
