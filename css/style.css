@@ -1,6 +1,7 @@
 
 body {
-    background-image: url('../img/bg1.jpg');
+    /*background-image: url('../img/bg1.jpg');*/
+    background-color: hwb(0 100% 0%);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -13,43 +14,14 @@ body {
     padding: 15px;
 }
 
-h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3.5em;
-    color: #56a5ef;
-    text-shadow: 2px 2px 4px #aaa;
-    animation: shake 0.9s infinite;
-}
-
-h2 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.8em;
-    color: #56a5ef;
-    text-shadow: 2px 2px 4px #aaa;
-}
 .bride-groom {
     font-family: 'Great Vibes', cursive;
     font-size: 1.8em;
-    color: #56a5ef;
+    color: #e2f727;
     text-shadow: 2px 2px 4px #aaa;
     text-align: center;
 }
 
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-2px); }
-    50% { transform: translateX(2px); }
-    75% { transform: translateX(-2px); }
-    100% { transform: translateX(0); }
-}
-@keyframes glow {
-    from {
-        text-shadow: 0 0 5px #bcd9f4, 0 0 10px #bcd9f4, 0 0 15px #bcd9f4;
-    }
-    to {
-        text-shadow: 0 0 15px #56a5ef, 0 0 20px #56a5ef, 0 0 25px #56a5ef;
-    }
-}
 p {
     font-family: 'Dancing Script', Open Sans;
     font-size: 1.0em;
@@ -61,14 +33,7 @@ p {
     max-width: 100%;
     height: auto;
     border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-.datetime {
-    margin-top: 25px;
-    max-width: 95%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    /*box-shadow: 0 4px 10px rgba(0,0,0,0.2);*/
 }
 .qrcode {
     margin-top: 15px;
@@ -77,8 +42,6 @@ p {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-
-
 .map {
   padding: 2em;
   background-color: #f0f8ff;
@@ -232,9 +195,9 @@ section.active {
 }
 
 .menu-bar a.active {
-  color: #0055cc;
+  color: #f5e059;
   font-weight: bold;
-  border-bottom: 2px solid #0055cc;
+  border-bottom: 2px solid #f6f6f6;
 }
 html {
   scroll-behavior: smooth;
@@ -263,19 +226,6 @@ html {
   z-index: 9999;
 }
 
-.video-bg {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.7;
-  }
   
   body {
     position: relative;
