@@ -1,70 +1,368 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Wedding Hau Ho - Hoang Phuong</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: #fff;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      position: relative;
+      min-height: 100vh;
+      padding-top: 60px; /* Space for fixed menu */
+    }
+    
+    /* Main container */
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Menu bar */
+    .menu-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 15px 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .menu-bar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .menu-bar a {
+      color: #333;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s;
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+    
+    .menu-bar a:hover, .menu-bar a.active {
+      color: #d64c78;
+      background-color: rgba(214, 76, 120, 0.1);
+    }
+    
+    /* Invitation section */
+    .invitation {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    
+    .banner {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 15px;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+    
+    /* Content sections */
+    .content-section {
+      display: none;
+      padding: 40px 20px;
+      margin: 30px 0;
+      background: #fff;
+      border-radius: 15px;
+      align-content: center;
+    }
+    
+    .content-section:first-of-type {
+      display: block;
+    }
+    
+    .content-section h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 42px;
+      color: #d64c78;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .content-section p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #555;
+    }
+    
+    /* Bank info */
+    .bank-info {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 25px auto;
+      max-width: 500px;
+    }
+    
+    .bank-info p {
+      margin: 10px 0;
+      text-align: left;
+    }
+    
+    .qrcode {
+      display: block;
+      margin: 20px auto;
+      max-width: 250px;
+      height: auto;
+      border-radius: 10px;
+    }
+    
+    /* Map section */
+    .map-btn {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 12px 25px;
+      background-color: #d64c78;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    
+    .map-btn:hover {
+      background-color: #c13a6a;
+    }
+    
+    .map-frame {
+      width: 100%;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    
+    .map-frame iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+    }
+    
+    /* Audio toggle button */
+    .audio-toggle {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #d64c78;
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 99;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    
+    .audio-toggle:hover {
+      transform: scale(1.1);
+    }
+    
+    .audio-toggle.playing {
+      background-color: #5cb85c;
+    }
+    
+    .audio-icon {
+      font-size: 20px;
+    }
+    
+    /* Flower animation */
+    @keyframes fall {
+      0% {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    .flower {
+      position: fixed;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/7096/7096435.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      animation: fall linear forwards;
+      z-index: 9;
+    }
+    
+    /* Curtain styles */
+    .curtain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      pointer-events: none;
+    }
+    
+    .curtain-left,
+    .curtain-right {
+      width: 50%;
+      height: 100%;
+      transition: transform 1s ease;
+      z-index: 9999;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .curtain-left {
+      background-color: #f9e3e8;
+      background-image: linear-gradient(to right, rgba(249, 227, 232, 0.9), rgba(214, 76, 120, 0.7));
+    }
+    
+    .curtain-right {
+      background-color: #f9e3e8;
+      background-image: linear-gradient(to left, rgba(249, 227, 232, 0.9), rgba(214, 76, 120, 0.7));
+    }
+    
+    .curtain.open .curtain-left {
+      transform: translateX(-100%);
+    }
+    
+    .curtain.open .curtain-right {
+      transform: translateX(100%);
+    }
+    
+    /* Form iframe */
+    iframe {
+      border-radius: 10px;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .menu-bar ul {
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      
+      .menu-bar a {
+        font-size: 14px;
+      }
+      
+      .content-section {
+        padding: 25px 15px;
+      }
+      
+      .content-section h2 {
+        font-size: 36px;
+      }
+      
+      .bank-info {
+        padding: 15px;
+      }
+      
+      .map-frame iframe {
+        height: 350px;
+      }
+      
+      .banner {
+        border-radius: 10px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .menu-bar ul {
+        gap: 10px;
+      }
+      
+      .menu-bar a {
+        font-size: 12px;
+        padding: 5px 8px;
+      }
+      
+      .content-section h2 {
+        font-size: 32px;
+      }
+      
+      .content-section p {
+        font-size: 16px;
+      }
+      
+      .map-frame iframe {
+        height: 300px;
+      }
+      
+      .audio-toggle {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
   <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-  <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfutmLkiAbvP26o_dh2iyPizsnawALf2SziHMtKRnmAEFhJmA/viewform" target="_blank" class="btn"></a></p>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet"/>
 </head>
-<script>
-  window.addEventListener('load', () => {
-    // Chờ 2 giây rồi mở rèm
-    setTimeout(() => {
-      document.querySelector('.curtain').classList.add('open');
-    }, 500);
-  });
-</script>
-
 <body>
   <!-- Hiệu ứng rèm-->
-<div class="curtain">
-  <div class="curtain-left"></div>
-  <div class="curtain-right"></div>
-</div>
+  <div class="curtain">
+    <div class="curtain-left"></div>
+    <div class="curtain-right"></div>
+  </div>
 
-    <!-- Script: Âm thanh -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const audio = document.querySelector('audio');
-    function enableAudio() {
-      audio.play().catch(e => console.log("Trình duyệt chặn autoplay:", e));
-      document.removeEventListener('click', enableAudio);
-      document.removeEventListener('touchstart', enableAudio);
-    }
-
-    document.addEventListener('click', enableAudio);
-    document.addEventListener('touchstart', enableAudio);
-  });
-</script>
   <!-- Nhạc nền -->
-  <audio autoplay loop>
+  <audio id="wedding-audio" loop>
     <source src="music/A Thousand Years.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- Menu -->
-  <nav class="menu-bar">
-    <ul>
-      <li><a href="#confirm" data-target="confirm">Xác nhận tham dự</a></li>
-      <li><a href="#event" data-target="event">Sự kiện</a></li>
-      <li><a href="#map" data-target="map">Bản đồ</a></li>
-      <li><a href="#gift" data-target="gift">Mừng cưới</a></li>
-    </ul>
-  </nav>
+  <!-- Container chính -->
+  <div class="main-container">
+    <!-- Menu -->
+    <nav class="menu-bar">
+      <ul>
+        <li><a href="#confirm" data-target="confirm" class="active">Xác nhận tham dự</a></li>
+        <li><a href="#event" data-target="event">Sự kiện</a></li>
+        <li><a href="#map" data-target="map">Bản đồ</a></li>
+        <li><a href="#gift" data-target="gift">Mừng cưới</a></li>
+      </ul>
+    </nav>
 
-  <div class="invitation">
-    <img src="img/slide1.jpg" class="banner" />
-    <img src="img/slide2.jpg" class="banner" />
-    <img src="img/slide3.jpg" class="banner" />
-    <img src="img/slide4.jpg" class="banner" />
-  </div>
+    <!-- Lời mời -->
+    <div class="invitation">
+      <img src="img/slide1.jpg" class="banner" alt="Hình ảnh cưới 1" />
+      <img src="img/slide2.jpg" class="banner" alt="Hình ảnh cưới 2" />
+      <img src="img/slide3.jpg" class="banner" alt="Hình ảnh cưới 3" />
+    </div>
+    
     <!-- Section: Xác nhận tham dự -->
-    <section id="confirm">
+    <section id="confirm" class="content-section">
       <h2>Xác nhận tham dự</h2>
       <p>Mời bạn xác nhận sự hiện diện bằng cách điền form bên dưới:</p>
       <iframe
@@ -73,95 +371,156 @@
         Đang tải…
       </iframe>
     </section>
+    
     <!-- Section: Event -->
-    <section id="event">
-      <img src="img/slide5.jpg" class="banner" />
-      </section>
+    <section id="event" class="content-section">
+      <h2>Thông tin sự kiện</h2>
+      <img src="img/slide4.jpg" class="banner" alt="Thông tin sự kiện 1" />
+      <img src="img/slide5.jpg" class="banner" alt="Thông tin sự kiện 2" />
+    </section>
+    
     <!-- Section: Mừng cưới -->
-    <section id="gift">
+    <section id="gift" class="content-section">
       <h2>Mừng cưới</h2>
       <p>Thông tin ngân hàng để bạn có thể gửi mừng cưới từ xa:</p>
-      <p><strong>Ngân hàng:</strong> Vietinbank<br />
-        <strong>Tên TK:</strong> HO XUAN HAU<br />
-        <strong>Số tài khoản:</strong> 108868910203
-      </p>
-      <img src="img/qr.jpg" alt="QR chuyển khoản" class="qrcode" />
+      <img src="img/qr.jpg" alt="QR mừng cưới" class="qrcode" />
     </section>
 
+    <!-- Section: Bản đồ -->
+    <section id="map" class="content-section">
+      <h2>Địa điểm tổ chức</h2>
+      <p>Thôn 4, Xã Sùng Nhơn, Huyện Đức Linh, Tỉnh Bình Thuận</p>
+      <a href="https://maps.app.goo.gl/s9gbSpVes7MhyJWq6" target="_blank" class="map-btn">
+        Xem chỉ đường trên Google Maps
+      </a>
+      <div class="map-frame">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.5002904822877!2d107.57805957369962!3d11.257667488921829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31746b0019b933db%3A0xdc49f6463ab96f4e!2zTmjDoCBNYXkgw5p0IELDrG5o!5e1!3m2!1svi!2s!4v1753181526160!5m2!1svi!2s" 
+          width="100%" height="700px" style="border:0; border-radius:15px;" 
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+  </div>
 
-  <!-- Section: Bản đồ -->
-  <section id="map">
-    <p>Thôn 4, Xã Sùng Nhơn, Huyện Đức Linh, Tỉnh Bình Thuận</p>
-    <a href="https://maps.app.goo.gl/s9gbSpVes7MhyJWq6" target="_blank" class="map-btn">
-      Xem chỉ đường trên Google Maps
-    </a>
-    <div class="map-frame">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.5002904822877!2d107.57805957369962!3d11.257667488921829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31746b0019b933db%3A0xdc49f6463ab96f4e!2zTmjDoCBNYXkgw5p0IELDrG5o!5e1!3m2!1svi!2s!4v1753181526160!5m2!1svi!2s" 
-        width="100%" height="700px" style="border:0; border-radius:15px;" 
-        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </section>
+  <!-- Nút phát nhạc -->
+  <button id="audio-toggle" class="audio-toggle" aria-label="Bật/tắt nhạc">
+    <span class="audio-icon">🎵</span>
+  </button>
 
-  <!-- Script: Menu điều hướng -->
+  <!-- Tất cả JavaScript được gom lại ở cuối -->
   <script>
-    const menuItems = document.querySelectorAll('.menu-bar a');
-    const sections = document.querySelectorAll('section');
+    // Khởi tạo khi DOM đã sẵn sàng
+    document.addEventListener('DOMContentLoaded', function () {
+      // Khai báo biến toàn cục
+      const audio = document.getElementById('wedding-audio');
+      const audioToggle = document.getElementById('audio-toggle');
+      const menuItems = document.querySelectorAll('.menu-bar a');
+      const sections = document.querySelectorAll('.content-section');
+      let isPlaying = false;
+      
+      // Ẩn tất cả sections khi khởi động (trừ phần đầu tiên)
+      function initSections() {
+        sections.forEach((section, index) => {
+          if (index !== 0) {
+            section.style.display = 'none';
+          } else {
+            section.style.display = 'block';
+          }
+        });
+      }
+      
+      // Hiệu ứng rèm
+      setTimeout(() => {
+        document.querySelector('.curtain').classList.add('open');
+      }, 300);
+      
+      // Xử lý âm thanh
+      function setupAudio() {
+        function enableAudio() {
+          if (!isPlaying) {
+            audio.play().then(() => {
+              isPlaying = true;
+              audioToggle.classList.add('playing');
+            }).catch(e => console.log("Trình duyệt chặn autoplay:", e));
+          }
+          document.removeEventListener('click', enableAudio);
+          document.removeEventListener('touchstart', enableAudio);
+        }
 
-function showSection(id) {
-  sections.forEach(section => {
-    if (section.id === id) {
-      section.classList.add('active');
-    } else {
-      section.classList.remove('active');
-    }
-  });
-}
+        document.addEventListener('click', enableAudio);
+        document.addEventListener('touchstart', enableAudio);
+        
+        // Toggle âm thanh khi click nút
+        audioToggle.addEventListener('click', function() {
+          if (isPlaying) {
+            audio.pause();
+            audioToggle.classList.remove('playing');
+          } else {
+            audio.play();
+            audioToggle.classList.add('playing');
+          }
+          isPlaying = !isPlaying;
+        });
+      }
+      
+      // Điều hướng menu
+      function setupNavigation() {
+        function showSection(id) {
+          sections.forEach(section => {
+            section.style.display = section.id === id ? 'block' : 'none';
+          });
+          
+          // Cập nhật URL với hash
+          window.location.hash = id;
+        }
 
-menuItems.forEach(item => {
-  item.addEventListener('click', function (e) {
-    e.preventDefault();
-    menuItems.forEach(i => i.classList.remove('active'));
-    this.classList.add('active');
-    const target = this.getAttribute('data-target');
-    showSection(target);
-  });
-});
-  </script>
-
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const menuItems = document.querySelectorAll('.menu-bar a');
-    const sections = document.querySelectorAll('section');
-    const audio = document.querySelector('audio');
-
-    // Ẩn tất cả section khi vừa load
-
-
-    menuItems.forEach(item => {
-      item.addEventListener('click', function (e) {
-        e.preventDefault();
-        menuItems.forEach(i => i.classList.remove('active'));
-        this.classList.add('active');
-        const target = this.getAttribute('data-target');
-        showSection(target);
-      });
+        menuItems.forEach(item => {
+          item.addEventListener('click', function (e) {
+            e.preventDefault();
+            menuItems.forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
+            const target = this.getAttribute('data-target');
+            showSection(target);
+            
+            // Cuộn mượt đến phần được chọn
+            document.getElementById(target).scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+        
+        // Xử lý hash trên URL khi tải trang
+        if (window.location.hash) {
+          const targetId = window.location.hash.substring(1);
+          const targetItem = document.querySelector(`.menu-bar a[data-target="${targetId}"]`);
+          if (targetItem) {
+            menuItems.forEach(i => i.classList.remove('active'));
+            targetItem.classList.add('active');
+            showSection(targetId);
+          }
+        }
+      }
+      
+      // Hiệu ứng hoa rơi
+      function createFlowers() {
+        function createFlower() {
+          const flower = document.createElement('div');
+          flower.className = 'flower';
+          flower.style.left = Math.random() * 100 + 'vw';
+          flower.style.animationDuration = (4 + Math.random() * 6) + 's';
+          flower.style.opacity = Math.random() * 0.6 + 0.4;
+          flower.style.transform = `scale(${Math.random() * 0.7 + 0.3})`;
+          document.body.appendChild(flower);
+          setTimeout(() => flower.remove(), 10000);
+        }
+        setInterval(createFlower, 600);
+      }
+      
+      // Khởi tạo tất cả chức năng
+      initSections();
+      setupAudio();
+      setupNavigation();
+      createFlowers();
     });
-  });
-</script>
-<script>
-  function createFlower() {
-    const flower = document.createElement('div');
-    flower.className = 'flower';
-    flower.style.left = Math.random() * 100 + 'vw';
-    flower.style.animationDuration = (4 + Math.random() * 6) + 's';
-    flower.style.opacity = Math.random() * 0.6 + 0.4;
-    flower.style.transform = `scale(${Math.random() * 0.7 + 0.3})`;
-    document.body.appendChild(flower);
-    setTimeout(() => flower.remove(), 10000);
-  }
-  setInterval(createFlower, 600);
-</script>
+  </script>
 </body>
 </html>
