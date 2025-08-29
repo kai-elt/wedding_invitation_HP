@@ -21,7 +21,11 @@
       min-height: 100vh;
       padding-top: 60px; /* Space for fixed menu */
     }
-    
+    p {
+    font-family: 'Cambria', Open Sans;
+    font-size: 1.0em;
+    color: #000000ae;
+    }
     /* Main container */
     .main-container {
       max-width: 1200px;
@@ -133,8 +137,8 @@
     
     /* Map section */
     .map-btn {
-      display: inline-block;
-      margin: 20px 0;
+      display: block;
+      margin: 20px auto;
       padding: 12px 25px;
       background-color: #d64c78;
       color: white;
@@ -142,6 +146,7 @@
       text-decoration: none;
       font-weight: bold;
       transition: background-color 0.3s;
+      width: fit-content;
     }
     
     .map-btn:hover {
@@ -241,13 +246,15 @@
     }
     
     .curtain-left {
-      background-color: #f9e3e8;
-      background-image: linear-gradient(to right, rgba(249, 227, 232, 0.9), rgba(214, 76, 120, 0.7));
+      background-image: url('./img/curtain left.jpg');
+      background-size: 100% 100%;   /* ép ảnh tràn đúng khung */
+      background-position: left center;
     }
     
     .curtain-right {
-      background-color: #f9e3e8;
-      background-image: linear-gradient(to left, rgba(249, 227, 232, 0.9), rgba(214, 76, 120, 0.7));
+      background-image: url('./img/curtain right.jpg');
+      background-size: 100% 100%;   /* ép ảnh tràn đúng khung */
+      background-position: right center;
     }
     
     .curtain.open .curtain-left {
@@ -374,7 +381,7 @@
     
     <!-- Section: Event -->
     <section id="event" class="content-section">
-      <h2>Thông tin sự kiện</h2>
+      <!--<h2>Thông tin sự kiện</h2>-->
       <img src="img/slide4.jpg" class="banner" alt="Thông tin sự kiện 1" />
       <img src="img/slide5.jpg" class="banner" alt="Thông tin sự kiện 2" />
     </section>
