@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Wedding Hau Ho - Hoang Phuong</title>
+  <title>Happy Wedding Xuan Hau - Hoang Phuong</title>
   <style>
     /* Reset CSS */
     * {
@@ -354,18 +354,20 @@
     <!-- Menu -->
     <nav class="menu-bar">
       <ul>
-        <li><a href="#confirm" data-target="confirm" class="active">Xác nhận tham dự</a></li>
-        <li><a href="#event" data-target="event">Sự kiện</a></li>
+        <li><a href="#home" data-target="home" class="active">Trang chủ</a></li>
+        <li><a href="#confirm" data-target="confirm">Xác nhận tham dự</a></li>
+        <li><a href="album" data-target="album">Album</a></li>
         <li><a href="#map" data-target="map">Bản đồ</a></li>
         <li><a href="#gift" data-target="gift">Mừng cưới</a></li>
       </ul>
     </nav>
 
     <!-- Lời mời -->
-    <div class="invitation">
-      <img src="img/slide1.jpg" class="banner" alt="Hình ảnh cưới 1" />
-      <img src="img/slide2.jpg" class="banner" alt="Hình ảnh cưới 2" />
-      <img src="img/slide3.jpg" class="banner" alt="Hình ảnh cưới 3" />
+    <div class="invitation" id="home">
+      <img src="img/slide1_1.jpg" class="banner" alt="Hình ảnh cưới 1" />
+      <img src="img/slide1_2.jpg" class="banner" alt="Gia đình 2 bên" />
+      <img src="img/slide1_3.jpg" class="banner" alt="Hình ảnh cưới 2" />
+      <img src="img/slide1_4.jpg" class="banner" alt="Thư mời" />
     </div>
     
     <!-- Section: Xác nhận tham dự -->
@@ -380,23 +382,21 @@
     </section>
     
     <!-- Section: Event -->
-    <section id="event" class="content-section">
+    <section id="album" class="content-section">
       <!--<h2>Thông tin sự kiện</h2>-->
       <img src="img/slide4.jpg" class="banner" alt="Thông tin sự kiện 1" />
-      <img src="img/slide5.jpg" class="banner" alt="Thông tin sự kiện 2" />
     </section>
     
     <!-- Section: Mừng cưới -->
     <section id="gift" class="content-section">
       <h2>Mừng cưới</h2>
-      <p>Thông tin ngân hàng để bạn có thể gửi mừng cưới từ xa:</p>
       <img src="img/qr.jpg" alt="QR mừng cưới" class="qrcode" />
     </section>
 
     <!-- Section: Bản đồ -->
     <section id="map" class="content-section">
       <h2>Địa điểm tổ chức</h2>
-      <p>Thôn 4, Xã Sùng Nhơn, Huyện Đức Linh, Tỉnh Bình Thuận</p>
+      <p>Thôn Sùng Nhơn 4, Xã Nam Thành, Tỉnh Lâm Đồng</p>
       <a href="https://maps.app.goo.gl/s9gbSpVes7MhyJWq6" target="_blank" class="map-btn">
         Xem chỉ đường trên Google Maps
       </a>
@@ -415,26 +415,20 @@
     <span class="audio-icon">🎵</span>
   </button>
 
-  <!-- Tất cả JavaScript được gom lại ở cuối -->
   <script>
-    // Khởi tạo khi DOM đã sẵn sàng
     document.addEventListener('DOMContentLoaded', function () {
-      // Khai báo biến toàn cục
       const audio = document.getElementById('wedding-audio');
       const audioToggle = document.getElementById('audio-toggle');
       const menuItems = document.querySelectorAll('.menu-bar a');
       const sections = document.querySelectorAll('.content-section');
       let isPlaying = false;
       
-      // Ẩn tất cả sections khi khởi động (trừ phần đầu tiên)
+
       function initSections() {
-        sections.forEach((section, index) => {
-          if (index !== 0) {
-            section.style.display = 'none';
-          } else {
-            section.style.display = 'block';
-          }
+        sections.forEach(section => {
+          section.style.display = 'none';
         });
+          document.getElementById('home').style.display = 'block'; // hiện invitation
       }
       
       // Hiệu ứng rèm
@@ -477,7 +471,13 @@
           sections.forEach(section => {
             section.style.display = section.id === id ? 'block' : 'none';
           });
-          
+      // Nếu chọn "home" thì hiện invitation
+          const invitation = document.getElementById('home');
+            if (id === 'home') {
+          invitation.style.display = 'block';
+          } else {
+          invitation.style.display = 'none';
+          }
           // Cập nhật URL với hash
           window.location.hash = id;
         }
