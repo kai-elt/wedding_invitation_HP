@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Wedding Xuan Hau - Hoang Phuong</title>
+  <title>Happy Wedding Xuân Hậu - Hoàng Phương</title>
   <style>
-    /* Reset CSS */
     * {
       margin: 0;
       padding: 0;
@@ -22,9 +21,9 @@
       padding-top: 60px; /* Space for fixed menu */
     }
     p {
-    font-family: 'Cambria', Open Sans;
-    font-size: 1.0em;
-    color: #000000ae;
+        font-family: 'Cambria', Open Sans;
+        font-size: 1.0em;
+        color: #000000ae;
     }
     /* Main container */
     .main-container {
@@ -44,7 +43,27 @@
       z-index: 100;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    
+    .swiper {
+      width: 100%;
+      padding: 20px 0;
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .swiper-slide img {
+      width: 100%;          /* chiếm toàn bộ slide */
+      height: 400px;        /* chiều cao đồng nhất */
+      object-fit: cover;    /* cắt phần thừa, giữ tỉ lệ, không méo */
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .swiper-slide img:hover {
+      transform: scale(1.05);
+    }
+
     .menu-bar ul {
       list-style: none;
       display: flex;
@@ -69,7 +88,6 @@
       background-color: rgba(214, 76, 120, 0.1);
     }
     
-    /* Invitation section */
     .invitation {
       margin-bottom: 40px;
       text-align: center;
@@ -84,7 +102,6 @@
       margin: 0 auto 20px auto;
     }
     
-    /* Content sections */
     .content-section {
       display: none;
       padding: 40px 20px;
@@ -126,11 +143,23 @@
       margin: 10px 0;
       text-align: left;
     }
-    
+    #album h2 {
+      margin-bottom: 10px;
+    }
+    #album p.subtitle {
+      text-align: center;
+      color: #777;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    .swiper {
+      padding: 20px 30px;
+    }
     .qrcode {
       display: block;
       margin: 20px auto;
-      max-width: 250px;
+      max-width: 450px;
+      box-shadow: 0 2px 8px rgba(207, 186, 186, 0.265);
       height: auto;
       border-radius: 10px;
     }
@@ -269,7 +298,22 @@
     iframe {
       border-radius: 10px;
     }
-    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .gallery img {
+     width: 100%;
+     border-radius: 10px;
+     cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+     transform: scale(1.05);
+    }
+
     /* Responsive design */
     @media (max-width: 768px) {
       .menu-bar ul {
@@ -336,6 +380,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet"/>
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Fancybox 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 </head>
 <body>
   <!-- Hiệu ứng rèm-->
@@ -381,11 +432,43 @@
       </iframe>
     </section>
     
-    <!-- Section: Event -->
-    <section id="album" class="content-section">
-      <!--<h2>Thông tin sự kiện</h2>-->
-      <img src="img/slide4.jpg" class="banner" alt="Thông tin sự kiện 1" />
-    </section>
+<section id="album" class="content-section">
+  <h2>Album ảnh cưới</h2>
+  <div class="swiper myAlbum">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <a data-fancybox="gallery" href="img/album1.jpg">
+          <img src="img/album1.jpg" alt="Ảnh 1">
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a data-fancybox="gallery" href="img/album2.jpg">
+          <img src="img/album2.jpg" alt="Ảnh 2">
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a data-fancybox="gallery" href="img/album3.jpg">
+          <img src="img/album3.jpg" alt="Ảnh 3">
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a data-fancybox="gallery" href="img/album4.jpg">
+          <img src="img/album4.jpg" alt="Ảnh 4">
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a data-fancybox="gallery" href="img/album5.jpg">
+          <img src="img/album5.jpg" alt="Ảnh 5">
+        </a>
+      </div>
+    </div>
+    <!-- Điều hướng Swiper -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
     
     <!-- Section: Mừng cưới -->
     <section id="gift" class="content-section">
@@ -403,7 +486,7 @@
       <div class="map-frame">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.5002904822877!2d107.57805957369962!3d11.257667488921829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31746b0019b933db%3A0xdc49f6463ab96f4e!2zTmjDoCBNYXkgw5p0IELDrG5o!5e1!3m2!1svi!2s!4v1753181526160!5m2!1svi!2s" 
-          width="100%" height="700px" style="border:0; border-radius:15px;" 
+          width="50%" height="450px" style="border:0; border-radius:15px;" 
           allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
@@ -529,5 +612,24 @@
       createFlowers();
     });
   </script>
+<script>
+  var swiper = new Swiper(".myAlbum", {
+    slidesPerView: 1.2,
+    spaceBetween: 15,
+    centeredSlides: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      768: { slidesPerView: 3 },
+      1024: { slidesPerView: 4 }
+    }
+  });
+</script>
 </body>
 </html>
