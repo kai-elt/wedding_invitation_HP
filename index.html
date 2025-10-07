@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Wedding Xuân Hậu - Hoàng Phương</title>
+  <title>💍Happy Wedding Xuân Hậu - Hoàng Phương</title>
   <style>
     * {
       margin: 0;
@@ -31,7 +31,26 @@
       margin: 0 auto;
       padding: 20px;
     }
-    
+    @keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-section h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
+  color: #d64c78;
+  margin-bottom: 20px;
+  text-align: center;
+  animation: fadeSlideIn 1s ease forwards;
+  opacity: 0;
+}
     /* Menu bar */
     .menu-bar {
       position: fixed;
@@ -460,9 +479,7 @@
     <section id="gift" class="content-section">
       <h2>Mừng cưới</h2>
       <img src="img/qr.jpg" alt="QR mừng cưới" class="qrcode" />
-      <p>Chủ TK: HO XUAN HAU</p>
-      <p>Số TK: 108868910203</p>
-      <p>Ngân hàng: Vietinbank</p>
+      <img src="img/qr_1.jpg" alt="QR mừng cưới" class="qrcode" />
     </section>
 
     <!-- Section: Bản đồ -->
